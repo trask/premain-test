@@ -39,14 +39,16 @@ public class Fibonacci {
     /**
      * Prints the average time it takes to calculate f(n).
      */
-    public static void trackExecutionSpeed(int iterations) {
+    public static long trackExecutionSpeed(int iterations) {
+        long blackhole = 0;
         for (int i = 0; i < iterations; i++) {
             long startTime = System.nanoTime();
             for (int j = 0; j < 50; j++) {
-                f(100);
+                blackhole += f(100);
             }
             long totalTime = System.nanoTime() - startTime;
             System.out.println(totalTime / 50);
         }
+        return blackhole;
     }
 }
